@@ -13,8 +13,12 @@
       <base-link>Определить размер</base-link>
       <base-container class="main__buttons">
         <base-counter></base-counter>
-        <base-button>Добавить в корзину</base-button>
-        <base-button class="button-like"
+        <base-button @click="confirmAdding((isFavorite = false))"
+          >Добавить в корзину</base-button
+        >
+        <base-button
+          class="button-like"
+          @click="confirmAdding((isFavorite = true))"
           ><img src="./images/favorite2.svg"
         /></base-button>
       </base-container>
@@ -28,6 +32,13 @@
   <base-container>
     <base-grid></base-grid>
   </base-container>
+  <base-dialog
+    v-if="confirmDialog"
+    @close="confirmAdding"
+    :title="title"
+    :quantity="$store.state.counterValue"
+    :place="place"
+  ></base-dialog>
   <the-footer></the-footer>
 </template>
 
@@ -45,6 +56,7 @@ import BaseFeedback from './components/UI/BaseFeedback.vue';
 import BasePrice from './components/UI/BasePrice.vue';
 import BaseLink from './components/UI/BaseLink.vue';
 import BaseGrid from './components/UI/BaseGrid.vue';
+import BaseDialog from './components/UI/BaseDialog.vue';
 
 export default {
   components: {
@@ -61,12 +73,26 @@ export default {
     BasePrice,
     BaseLink,
     BaseGrid,
+    BaseDialog,
   },
   data() {
     return {
       title: 'Пижама для девочек',
       article: 'Арт. 02765/46',
+      confirmDialog: false,
+      isFavorite: false,
+      place: '',
     };
+  },
+  methods: {
+    confirmAdding(obj) {
+      if (!obj) {
+        this.place = 'корзину';
+      } else {
+        this.place = 'избранное';
+      }
+      this.confirmDialog = !this.confirmDialog;
+    },
   },
 };
 </script>
@@ -88,6 +114,7 @@ body {
 .main__container {
   display: flex;
   gap: 36px;
+  position: relative;
 }
 
 .title {
