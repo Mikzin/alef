@@ -91,7 +91,9 @@ export default {
       } else {
         this.place = 'избранное';
       }
-      this.confirmDialog = !this.confirmDialog;
+      if (this.$store.state.counterValue > 0) {
+        this.confirmDialog = !this.confirmDialog;
+      }
     },
   },
 };
