@@ -44,7 +44,8 @@
 
 <style scoped>
 footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   justify-content: space-between;
   padding: 30px 143px;
 }
@@ -85,7 +86,6 @@ footer {
   border-bottom: 1px solid #c4c4c4;
   padding: 12px;
   margin: 34px 0;
-  width: 452px;
 }
 
 .footer__button {
@@ -104,5 +104,17 @@ footer {
 .footer__button:hover {
   opacity: 0.8;
   background-color: #c4c4c4;
+}
+
+@media screen and (max-width: 700px) {
+  footer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .footer__subscribe {
+    grid-column: 1 / span 2;
+  }
 }
 </style>

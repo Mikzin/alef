@@ -7,6 +7,12 @@
 <style scoped>
 .container {
   width: 100%;
-  margin: 20px 0 32px;
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 1040px) {
+  .container {
+    margin-top: 0;
+  }
 }
 </style>

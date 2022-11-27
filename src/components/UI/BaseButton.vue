@@ -17,6 +17,7 @@
   max-height: 44px;
   cursor: pointer;
   margin: 2px;
+  max-width: 203px;
 }
 
 .button:hover {

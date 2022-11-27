@@ -1,33 +1,34 @@
 <template>
   <div class="preview">
     <img :src="itemName" class="preview__image" />
-  </div>
-  <div class="preview__row">
-    <img
-      src="../../images/prev1.png"
-      class="preview__row-image"
-      @click="getName('foto1')"
-    />
-    <img
-      src="../../images/prev2.png"
-      class="preview__row-image"
-      @click="getName('prev2')"
-    />
-    <img
-      src="../../images/prev3.png"
-      class="preview__row-image"
-      @click="getName('prev3')"
-    />
-    <img
-      src="../../images/prev4.png"
-      class="preview__row-image"
-      @click="getName('prev4')"
-    />
-    <img
-      src="../../images/prev5.png"
-      class="preview__row-image"
-      @click="getName('prev5')"
-    />
+
+    <div class="preview__row">
+      <img
+        src="../../images/prev1.png"
+        class="preview__row-image"
+        @click="getName('foto1')"
+      />
+      <img
+        src="../../images/prev2.png"
+        class="preview__row-image"
+        @click="getName('prev2')"
+      />
+      <img
+        src="../../images/prev3.png"
+        class="preview__row-image"
+        @click="getName('prev3')"
+      />
+      <img
+        src="../../images/prev4.png"
+        class="preview__row-image"
+        @click="getName('prev4')"
+      />
+      <img
+        src="../../images/prev5.png"
+        class="preview__row-image"
+        @click="getName('prev5')"
+      />
+    </div>
   </div>
 </template>
 
@@ -52,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+.preview {
+  position: relative;
+}
+
 .preview__image {
   width: 686px;
 }
@@ -68,5 +73,15 @@ export default {
 .preview__row-image {
   max-width: 70px;
   cursor: pointer;
+}
+
+@media screen and (max-width: 700px) {
+  .preview__image {
+    width: 100%;
+  }
+
+  .preview__row {
+    width: 51px;
+  }
 }
 </style>

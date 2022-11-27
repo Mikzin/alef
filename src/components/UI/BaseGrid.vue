@@ -174,4 +174,10 @@ export default {};
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 700px) {
+  .main__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
 </style>

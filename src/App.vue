@@ -2,7 +2,7 @@
   <the-header></the-header>
   <base-container class="main__container">
     <the-preview></the-preview>
-    <base-container>
+    <base-container class="main__info">
       <h3 class="title">{{ title }}</h3>
       <span class="article">{{ article }}</span>
       <base-feedback></base-feedback>
@@ -114,7 +114,6 @@ body {
 .main__container {
   display: flex;
   gap: 36px;
-  position: relative;
 }
 
 .title {
@@ -141,8 +140,26 @@ body {
   gap: 6px;
 }
 
+.main-info {
+  margin: 20px 0 32px;
+}
+
 .main__styles {
   display: flex;
   justify-content: center;
+}
+
+@media screen and (max-width: 1040px) {
+  .main__container {
+    flex-direction: column;
+  }
+
+  .main__buttons {
+    flex-direction: column;
+  }
+
+  .main__info {
+    margin: 20px 0 32px 20px;
+  }
 }
 </style>
